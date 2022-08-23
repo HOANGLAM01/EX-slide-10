@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="demo" width="500" height="600"></canvas>
+<script>
+    let canvas = document.getElementById("demo");
+    let perimeter;
+    let area;
+    if (canvas.getContext)
+    {
+        let ctx = canvas.getContext('2d');
+        ctx.fillStyle='#fa4b2a';
+        ctx.fillRect(10, 40, 300, 160);
+        area = parseInt(ctx.fillRect[2]) * parseInt(ctx.fillRect[3]);
+        perimeter = (parseInt(ctx.fillRect[2]) + parseInt(ctx.fillRect[3])) * 2;
+    }
+document.write(area)
+</script>
+</body>
+</html>
