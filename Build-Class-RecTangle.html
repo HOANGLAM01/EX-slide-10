@@ -7,18 +7,53 @@
 <body>
 <canvas id="demo" width="500" height="600"></canvas>
 <script>
-    let canvas = document.getElementById("demo");
+/*    let canvas = document.getElementById("demo");
     let perimeter;
     let area;
+    let x = 300;
+    let y = 160;
     if (canvas.getContext)
     {
         let ctx = canvas.getContext('2d');
         ctx.fillStyle='#fa4b2a';
-        ctx.fillRect(10, 40, 300, 160);
-        area = parseInt(ctx.fillRect[2]) * parseInt(ctx.fillRect[3]);
-        perimeter = (parseInt(ctx.fillRect[2]) + parseInt(ctx.fillRect[3])) * 2;
+        ctx.fillRect(10, 40, x, y);
+        area = x * y;
+        perimeter = (x + y) * 2;
     }
-document.write(area)
+document.write("Diện tích là: " +area + " Chu vi là: " + perimeter)
+*/
+function Square (x,y,height,width) {
+    this.x = x;
+    this.y = y;
+    this.height= height;
+    this.width = width;
+}
+function getRandomHex() {
+    return Math.floor(Math.random()*255);
+}
+function getRandomColor(){
+    let red = getRandomHex();
+    let green = getRandomHex();
+    let blue = getRandomHex();
+    return "rgb(" + red +"," +  blue +"," + green +")";
+}
+let area;
+function createSquare() {
+    let ctx = document.getElementById("demo").getContext("2d");
+    let height = Math.floor(Math.random()*300);
+    let width = Math.floor(Math.random()*300);
+     area = height * width;
+    let x = 10;
+    let y = 10;
+    let color = getRandomColor();
+    let square = new Square(x,y,height,width);
+    ctx.beginPath();
+    ctx.fillRect(square.x,square.y,square.height,square.width);
+    ctx.fillStyle = color;
+    ctx.fill();
+}
+createSquare()
+alert("diện tích hình chữ nhật là: " + area + " cm2");
 </script>
 </body>
 </html>
